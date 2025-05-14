@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+
+
+<style>
+body{
+   background-color: bisque;
+
+
+}
+button{
+   background-color: aqua;
+   text-align: center;
+   text-decoration-color: blanchedalmond;
+}
+
+
+
+
+
+
+</style>
+
+
+</head>
+<body>
+   <h1>Kvadratvienadojuma risinatajs </h1>
+<input type="number" id="log1">  <input type="number" id="log2"> <input type="number" id="log3">
+<button type="button" onclick="dari()"> Aprekinat</button>
+<div class="rezultats" id="rezultats"> ...</div>
+
+
+<script>
+
+
+function disk(a,b,c){
+var D= b*b-4*a*c;
+return D;
+}
+function saknes(a,b,D){
+if(D<0){
+   return false;
+}else{
+   var x1=(-b+Math.sqrt(D))/(2*a);
+   var x2=(-b-Math.sqrt(D))/(2*a);
+return[x1,x2];
+}
+
+
+}
+
+
+function dari(){
+var a=Number(log1.value);
+var b=Number(log2.value);
+var c=Number(log3.value);
+
+
+if (isNaN(a)|| isNaN(b)||isNaN(c)|| a==0 ){
+   rezultats.innerHTML="Ludzu ievadit konkretuskoeficentus";
+   return;
+}
+var atb=saknes(a,b,disk(a,b,c));
+if(atb===false){
+   rezultats.innerHTML="Kvadratbienadojumam nav realu saknu";
+}else{
+       rezultats.innerHTML=`Saknes:x1=${atb[0].toFixed(3)}, x2=${atb[1].toFixed(3)}`;
+}
+
+
+saknes();
+disk();
+}
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
+
